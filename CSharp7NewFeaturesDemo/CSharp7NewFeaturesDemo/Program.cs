@@ -6,37 +6,44 @@ using System.Threading.Tasks;
 
 namespace CSharp7NewFeaturesDemo
 {
-    class Program
+    public class Shape
     {
-        static void Main(string[] args)
+
+    }
+
+    public class Rectangle : Shape
+    {
+        public int Width, Height;
+    }
+
+    public class Circle : Shape
+    {
+
+    }
+
+    class Program
+    {       
+
+        public void DisplayShape(Shape shape)
         {
-            // Feature 1: Out Variables
-            if (DateTime.TryParse("02/02/2016", out var dt))
+            if(shape is Rectangle)
             {
-                Console.WriteLine(dt);
+                var rc = (Rectangle)shape;
             }
 
-            // Interestingly the variable dt is now available outside the
-            // block where it is defined too. For example:
-            Console.WriteLine($"dt outside block: {dt}");
+            var rect = shape as Rectangle;
+            if(rect != null)
+            {
+                // use rect
+            }
+        }
 
-            /*********************************************************
-             *  Output
-             *  2/2/2016 12:00:00 AM
-             *  dt outside block: 2/2/2016 12:00:00 AM
-            ********************************************************/
-
-            // What if the parsing fails and we use out variable?
-            int.TryParse("abc", out var i);
-            Console.WriteLine($"value of i after parsing fails: {i}");
-
-            /*********************************************************
-             *  Output
-             *  2/2/2016 12:00:00 AM
-             *  dt outside block: 2/2/2016 12:00:00 AM
-             *  value of i after parsing fails: 0
-            *********************************************************/
-            // so in the above case output will be the default value of variable data type.
+        static void Main(string[] args)
+        {
+            // Feature 2: Pattern Matching
+            // Unfortunately this feature is coming very slowly.
+            // So in C#7 we never really get saveral features that could have been there
+            // with pattern matching.            
         }
     }
 }
