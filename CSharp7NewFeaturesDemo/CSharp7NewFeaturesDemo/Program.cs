@@ -17,8 +17,8 @@ namespace CSharp7NewFeaturesDemo
             // b*b-4*a*c
 
             // one place where we can calculate disciminant is inside a Func
-            var CalculateDiscriminant = new Func<double, double, double, double>(
-                (aa, bb, cc) => bb * bb - 4 * aa * cc);
+            //var CalculateDiscriminant = new Func<double, double, double, double>(
+            //    (aa, bb, cc) => bb * bb - 4 * aa * cc);
             // this is lengthy, but it works!
 
             var disc = CalculateDiscriminant(a, b, c);
@@ -27,6 +27,16 @@ namespace CSharp7NewFeaturesDemo
                 (-b-rootDisc) / (2*a),
                 (-b+rootDisc) / (2*a)
                 );
+        }
+
+        // Although this approach of introducing private method
+        // looks much elegant, however this introduces another problem.
+        // this approach technically pollutes the code of the class, as the
+        // method would be useful only to one type of Equation solver i.e. SolveQuadreticEquations
+        // so it's a burder for it to be available for other kind of equation solver methods.
+        private static double CalculateDiscriminant(double a, double b, double c)
+        {
+            return b * b - 4 * a * c;
         }
     }
 
