@@ -14,12 +14,13 @@ namespace CSharp7NewFeaturesDemo
             // just like tuples.
             var myPoint = new Point { X = 5, Y = 3 };
             // now you want to deconstruct your point:
-            var (x, y) = myPoint;
-            Console.WriteLine($"myPoint X: {x}, Y: {y}");
+            // if you don't care about the second return value.
+            var (x, _) = myPoint;
+            Console.WriteLine($"myPoint X: {x}");
 
             /*******************************************************************
              * Output:
-             * myPoint X: 5, Y: 3
+             * myPoint X: 5
              *****************************************************************/
         }
 
