@@ -12,23 +12,15 @@ namespace CSharp7NewFeaturesDemo
         public static Tuple<double, double>
             SolveQuadratic(double a, double b, double c)
         {
-            // In addition, we can have thid function also capture a, b and c as if
-            // hey were a lambda. because lambda functions can capture whatever is
-            // available within their scope.
-            //double CalculateDiscriminant()
-            //{
-            //    return b * b - 4 * a * c;
-            //}
-
-            // another concise way to express same features
-            double CalculateDiscriminant() => b * b - 4 * a * c;
-
             var disc = CalculateDiscriminant();
             var rootDisc = Math.Sqrt(disc);
             return Tuple.Create(
                 (-b-rootDisc) / (2*a),
                 (-b+rootDisc) / (2*a)
                 );
+
+            // Location of function within the function doesn't matter.
+            double CalculateDiscriminant() => b * b - 4 * a * c;
         }        
     }
 
