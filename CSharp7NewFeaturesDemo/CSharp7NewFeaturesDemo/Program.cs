@@ -19,6 +19,17 @@ namespace CSharp7NewFeaturesDemo
             // next line simply copies the value.
             var valueOfSecond = refToSecond;
 
+            // there are couple of rules, you can not rebind the variables
+            // you can not go ahead with same variable to reference something else.
+            refToSecond = ref numbers[0];
+
+            /*******************************************************************
+             * ERROR
+             * Feature 'ref reassignment' is not available in C# 7.0. please use 
+             * language version 7.3 or greater.
+             * This means this is going to be allowed in later versions
+             * *****************************************************************/
+
             refToSecond = 123;
             Console.WriteLine(string.Join(",", numbers));
 
