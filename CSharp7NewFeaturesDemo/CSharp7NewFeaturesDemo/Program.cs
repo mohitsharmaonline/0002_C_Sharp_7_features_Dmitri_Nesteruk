@@ -11,7 +11,7 @@ namespace CSharp7NewFeaturesDemo
         static void Main(string[] args)
         {
             // Feature 1: Out Variables
-            if (DateTime.TryParse("02/02/2016", out DateTime dt))
+            if (DateTime.TryParse("02/02/2016", out var dt))
             {
                 Console.WriteLine(dt);
             }
