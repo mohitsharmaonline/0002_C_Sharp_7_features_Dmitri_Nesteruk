@@ -26,15 +26,38 @@ namespace CSharp7NewFeaturesDemo
 
         public void DisplayShape(Shape shape)
         {
-            if(shape is Rectangle)
+            if(shape is Rectangle r)
             {
-                var rc = (Rectangle)shape;
+                // Use r
             }
 
-            var rect = shape as Rectangle;
-            if(rect != null)
+            // variable r is available here too.
+
+            if (!(shape is Circle notCircle))
             {
-                // use rect
+                // use notCircle here
+            }
+
+            // notCircle is available here too.
+
+            switch(shape)
+            {
+                case Circle c:
+                    // use c
+                    break;
+                case Rectangle sq when (sq.Height == sq.Width):
+                    // use sq
+                    break;
+            }
+
+            // unfortunately we haven't got here any kind of switching on tuples
+            var z = (12, 23);
+            switch(z)
+            {
+                // We still can't do it!
+                case (0, 0):
+                    // we have origin.
+                    break;
             }
         }
 
