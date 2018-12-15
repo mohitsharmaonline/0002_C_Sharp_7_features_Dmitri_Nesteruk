@@ -58,6 +58,22 @@ namespace CSharp7NewFeaturesDemo
 
             Console.WriteLine($"My name is {me.name}, I am {me.age} years old.");
 
+            // a tyuple type can be used anywhere other types can be.
+            var snp = new Func<double, double, (double sum, double product)>((a, b) => (a + b, a * b));
+            var result = snp(1, 2);
+            Console.WriteLine($"sum = {result.sum}");
+
+            /********************************************************************************
+             * Output
+             * sum = 7, product = 10
+             * sum = 7, product= 10
+             * System.ValueTuple`2[System.Double,System.Double]
+             * (mohit, 230)
+             * System.ValueTuple`2[System.String,System.Int32]
+             * My name is mohit, I am 230 years old.
+             * sum = 3
+             * ******************************************************************************/ 
+              
         }
     }
 }
