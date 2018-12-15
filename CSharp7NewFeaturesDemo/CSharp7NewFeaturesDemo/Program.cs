@@ -20,6 +20,16 @@ namespace CSharp7NewFeaturesDemo
              * output
              * 10,20,1000
              * **********************************************************/
+
+            // this leads to misuse similar to that in C++
+            Find(moreNumbers, 10) = 555;
+            Console.WriteLine(string.Join(",", moreNumbers));
+
+            /**********************************************************
+             * Output
+             * 10,20,1000
+             * 555,20,1000
+             * *******************************************************/
         }
 
         static ref int Find(int[] numbers, int value)
