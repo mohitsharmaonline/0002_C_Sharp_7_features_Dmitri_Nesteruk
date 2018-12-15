@@ -10,16 +10,17 @@ namespace CSharp7NewFeaturesDemo
     {
         static void Main(string[] args)
         {
-            // Feature 3: Tuples
-            // Tuples have already existed in C#
-            // Logic of Deconstruction
-            var me = (name: "mohit", age: 123);
-            // here we are deconstructing the tuple into two variables, name and age.
-            var (name, age) = me;
-
             // now you can make sure that even one of your type supports deconstruction
             // just like tuples.
+            var myPoint = new Point { X = 5, Y = 3 };
+            // now you want to deconstruct your point:
+            var (x, y) = myPoint;
+            // Error that no Deconstruc logic is available with Point will appear.
+        }
 
+        public class Point
+        {
+            public int X, Y;
         }
     }
 }
