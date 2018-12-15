@@ -6,37 +6,27 @@ using System.Threading.Tasks;
 
 namespace CSharp7NewFeaturesDemo
 {
-
-    public class EquationSolver
-    {
-        public static Tuple<double, double>
-            SolveQuadratic(double a, double b, double c)
-        {
-            var disc = CalculateDiscriminant();
-            var rootDisc = Math.Sqrt(disc);
-            return Tuple.Create(
-                (-b-rootDisc) / (2*a),
-                (-b+rootDisc) / (2*a)
-                );
-
-            // Location of function within the function doesn't matter.
-            double CalculateDiscriminant() => b * b - 4 * a * c;
-        }        
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            // Local Functions
-            // this feature already existed in C# but under a disguise.
-            var result = EquationSolver.SolveQuadratic(1, 10, 16);
-            Console.WriteLine(result);
+            // Feature: Ref Returns and Locals
+            // References to local variables.
+            int[] numbers = { 1, 2, 3 };
+            ref int refToSecond = ref numbers[1];
+            // now any change to refToSecond variable affects 
+            // the second value in an array.
+            // next line simply copies the value.
+            var valueOfSecond = refToSecond;
 
-            /****************************************************
-             * Output:
-             * (-8, -2)
-             * **************************************************/
+            refToSecond = 123;
+            Console.WriteLine(string.Join(",", numbers));
+
+            /*************************************************************
+             * Output
+             * 1,123,3
+             * **********************************************************/
+
         }
     }
 }
