@@ -15,12 +15,23 @@ namespace CSharp7NewFeaturesDemo
             var myPoint = new Point { X = 5, Y = 3 };
             // now you want to deconstruct your point:
             var (x, y) = myPoint;
-            // Error that no Deconstruc logic is available with Point will appear.
+            Console.WriteLine($"myPoint X: {x}, Y: {y}");
+
+            /*******************************************************************
+             * Output:
+             * myPoint X: 5, Y: 3
+             *****************************************************************/
         }
 
         public class Point
         {
             public int X, Y;
+
+            public void Deconstruct(out int x, out int y)
+            {
+                x = X;
+                y = Y;
+            }
         }
     }
 }
