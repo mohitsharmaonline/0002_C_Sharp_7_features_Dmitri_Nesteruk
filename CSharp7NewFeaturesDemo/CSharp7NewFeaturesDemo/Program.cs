@@ -8,6 +8,18 @@ namespace CSharp7NewFeaturesDemo
 {    
     class Program
     {
+        public string Name { get; set; }
+
+        public Program(string name)
+        {
+            if(name == null)
+            {
+                throw new ArgumentNullException(paramName: nameof(name));
+            }
+
+            Name = name;
+        }
+
         static void Main(string[] args)
         {
             // Feature 7: throw Expressions.
