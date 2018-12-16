@@ -36,9 +36,12 @@ namespace CSharp7NewFeaturesDemo
         // by writing a min function.
         static ref int Min(ref int x, ref int y)
         {
-            return ref (x < y ? x : y);
-            // not allowed either!
-
+            // only this will work.
+            if(x < y)
+            {
+                return ref x;
+            }
+            return ref y;
         }
 
         static ref int Find(int[] numbers, int value)
