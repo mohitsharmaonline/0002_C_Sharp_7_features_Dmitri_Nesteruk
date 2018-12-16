@@ -30,6 +30,15 @@ namespace CSharp7NewFeaturesDemo
              * 10,20,1000
              * 555,20,1000
              * *******************************************************/
+
+            int a = 1, b = 2;
+            // this gives you value as return
+            int minValue = Min(ref a, ref b);
+            Console.WriteLine($"minValue = {minValue}");
+
+            // this will give you reference to minValue
+            ref int minValueRef = ref Min(ref a, ref b);
+            Console.WriteLine($"minValueRef = {minValueRef}");
         }
 
         // now we will see some of the limitations of these concepts of ref 
