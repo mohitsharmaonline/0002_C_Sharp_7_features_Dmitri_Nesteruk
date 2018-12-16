@@ -36,9 +36,8 @@ namespace CSharp7NewFeaturesDemo
         // by writing a min function.
         static ref int Min(ref int x, ref int y)
         {
-            return x < y ? (ref x) : (ref y);
-
-            // Even this won't work!
+            return ref (x < y ? x : y);
+            // not allowed either!
 
         }
 
