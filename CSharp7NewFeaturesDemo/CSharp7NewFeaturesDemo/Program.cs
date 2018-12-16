@@ -32,6 +32,18 @@ namespace CSharp7NewFeaturesDemo
              * *******************************************************/
         }
 
+        // now we will see some of the limitations of these concepts of ref 
+        // by writing a min function.
+        static ref int Min(ref int x, ref int y)
+        {
+            return x < y ? x : y;
+
+            // results in error
+            //  Severity Code    Description Project File Line    Suppression State
+            // Error CS8150  By - value returns may only be used in methods that return by value CSharp7NewFeaturesDemo  C: \Users\mohit\Documents\0002_C_Sharp_7_features_Dmitri_Nesteruk\CSharp7NewFeaturesDemo\CSharp7NewFeaturesDemo\Program.cs   39  Active
+
+        }
+
         static ref int Find(int[] numbers, int value)
         {
             for (int i = 0; i < numbers.Length; i++)
